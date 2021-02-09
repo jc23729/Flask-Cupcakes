@@ -30,3 +30,15 @@ class Cupcake(db.Model):
 
     def to_dict(self):
         """Serialize cupcake to a dict of cupcake info."""
+        return {
+                "id": self.id,
+                "flavor": self.flavor,
+                "rating": self.rating,
+                "size": self.size,
+                "image": self.image,
+                }
+
+def connect_db(app):
+    """Connect to the database"""
+    db.app = app
+    db.init_app(app)
